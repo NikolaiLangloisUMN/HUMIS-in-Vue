@@ -1,4 +1,8 @@
 <script setup>
+import LeftNav from "@/components/navs/LeftNav.vue";
+import TopNav from "@/components/navs/TopNav.vue";
+import BottomNav from "@/components/navs/BottomNav.vue";
+import DropDownMenuNav from "@/components/navs/DropDownMenuNav.vue";
 </script>
 
 <template>
@@ -10,43 +14,16 @@
     </header>
 
     <section class="middle">
-      <nav>
-        <a href="#">Campus directory</a>
-        <a href="#">Department calendar</a>
-        <a href="contact-us.html">Contact us</a>
 
-        <a href="#">
-          <img src="@/assets/files/u_small.gif" alt="U of U Logo"/>
-        </a>
-      </nav>
+      <top-nav/>
 
-      <nav class="drop-down-menu">
-        <label for="major-navigation">
-          <select name="major-navigation" id="major-navigation">
-            <option value="#">About us</option>
-            <option value="#">Faculty &amp; staff</option>
-            <option value="#">Undergraduate students</option>
-            <option value="#">Graduate students</option>
-            <option value="#">Courses &amp; syllabi</option>
-            <option value="#">News &amp; announcements</option>
-            <option value="#">Friends &amp; alumni</option>
-            <option value="#">Contact us</option>
-          </select>
-        </label>
-      </nav>
+      <drop-down-menu-nav/>
 
       <div class="green-box">
         <aside class="left-side">
-          <nav class="left-nav">
-            <a href="about-us.html">About us</a>
-            <a href="#">Faculty &amp; staff</a>
-            <a href="#">Undergraduate students</a>
-            <a href="#">Graduate students</a>
-            <a href="#">Courses &amp; syllabi</a>
-            <a href="#">News &amp; announcements</a>
-            <a href="#">Friends &amp; alumni</a>
-            <a href="contact-us.html">Contact us</a>
-          </nav>
+
+          <left-nav/>
+
         </aside>
 
         <main>
@@ -78,11 +55,8 @@
         <div style="clear: both;"></div>
       </div>
 
-      <nav class="bottom">
-        <a href="#">Disclaimer</a>
-        <a href="#">Text only</a>
-        <a href="#">Webmaster</a>
-      </nav>
+      <bottom-nav/>
+
     </section>
 
     <footer>
@@ -113,45 +87,6 @@ div.container { /* Container div */
     background-image: url('@/assets/files/uofu_medallion_rt.gif');
     background-repeat: no-repeat;
     background-position: bottom right;
-
-    > nav {
-      text-align: center;
-      font-size: 10px;
-      text-transform: uppercase;
-
-      a {
-        color: var(--black);
-        border-right: 1px solid black;
-        padding-right: 5px;
-        margin-right: 5px;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          vertical-align: middle;
-        }
-
-        &:last-of-type {
-          border-right: none;
-        }
-      }
-
-      &.drop-down-menu {
-        border: 1px solid black;
-        margin-top: 10px;
-
-        select {
-          width: 100%;
-        }
-      }
-
-      &.bottom {
-        text-transform: lowercase;
-      }
-    }
   }
 
   div.green-box {
@@ -164,10 +99,6 @@ div.container { /* Container div */
     aside {
       &.left-side {
         display: none;
-
-        nav {
-          /* nav styles here */
-        }
       }
     }
 
@@ -193,13 +124,6 @@ div.container { /* Container div */
   @media screen and (width >= 600px) {
     /* A breakpoint */
     section.middle {
-      > nav { /* nav child */
-        text-align: right; /* Override the mobile property */
-
-        &.drop-down-menu {
-          display: none;
-        }
-      }
 
       div.green-box {
         padding: 20px 30px;
@@ -209,23 +133,6 @@ div.container { /* Container div */
             display: block;
             float: left;
             width: 33%;
-
-            nav {
-              a {
-                display: block;
-                text-transform: uppercase;
-                font-size: 10px;
-                color: var(--black);
-                border-bottom: 2px solid var(--engDeptGreen);
-                text-decoration: none;
-                padding: 10px 0 10px 10px;
-
-                &:hover {
-                  background-color: var(--engDeptGreen);
-                  color: #fff;
-                }
-              }
-            }
           }
         }
 

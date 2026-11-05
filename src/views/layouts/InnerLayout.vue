@@ -1,6 +1,9 @@
 <script setup>
 
-import LeftNav from "@/components/LeftNav.vue";
+import LeftNav from "@/components/navs/LeftNav.vue";
+import TopNav from "@/components/navs/TopNav.vue";
+import BottomNav from "@/components/navs/BottomNav.vue";
+import DropDownMenuNav from "@/components/navs/DropDownMenuNav.vue";
 </script>
 
 <template>
@@ -8,7 +11,9 @@ import LeftNav from "@/components/LeftNav.vue";
 
     <header>
       <a href="index.html">
-        <img src="@/assets/files/historyHeader.gif" alt="HUMIS project"/>
+        <router-link :to="{ name: 'home' }">
+          <img src="@/assets/files/historyHeader.gif" alt="HUMIS project"/>
+        </router-link>
       </a>
 
       <img src="@/assets/files/histBooks01.jpg" alt="Books on a table"/>
@@ -26,42 +31,15 @@ import LeftNav from "@/components/LeftNav.vue";
 
       <section class="inner">
 
-        <nav class="drop-down-menu">
-          Navigate:
+        <drop-down-menu-nav/>
 
-          <label for="major-navigation">
-            <select name="major-navigation" id="major-navigation">
-              <option value="about-us.html">About us</option>
-              <option value="#">Faculty &amp; staff</option>
-              <option value="#">Undergraduate students</option>
-              <option value="#">Graduate students</option>
-              <option value="#">Courses &amp; syllabi</option>
-              <option value="#">News &amp; announcements</option>
-              <option value="#">Friends &amp; alumni</option>
-              <option value="#">Contact us</option>
-            </select>
-          </label>
-        </nav>
-
-        <nav class="minor top">
-          <a href="#">Campus directory</a>
-          <a href="#">Department calendar</a>
-          <a href="contact-us.html">Contact us</a>
-
-          <a href="#">
-            <img src="@/assets/files/u_small.gif" alt="U of U Logo"/>
-          </a>
-        </nav>
+        <top-nav/>
 
         <main>
           <slot/>
         </main>
 
-        <nav class="minor bottom">
-          <a href="#">Disclaimer</a>
-          <a href="#">Text only</a>
-          <a href="#">Webmaster</a>
-        </nav>
+        <bottom-nav/>
 
       </section>
     </section>
@@ -102,65 +80,6 @@ section.container {
       flex-direction: column;
       justify-content: space-between;
       /*height: 100%;*/
-
-      nav.drop-down-menu {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        background-color: var(--grey-light);
-        padding: 20px 10px;
-        order: -1;
-
-        label {
-          display: flex;
-
-          select {
-            width: 100%;
-          }
-        }
-      }
-
-      nav.minor {
-        display: flex;
-        justify-content: center;
-        font-size: 10px;
-        align-items: center;
-
-        a {
-          color: var(--black);
-          border-right: 1px solid black;
-          padding-right: 5px;
-          margin-right: 5px;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-
-          img {
-            vertical-align: middle;
-          }
-
-          &:last-of-type {
-            border-right: none;
-          }
-
-          &.active {
-            text-decoration: underline;
-          }
-        }
-
-        &.top {
-          text-transform: uppercase;
-          margin-top: 5px;
-          order: -2;
-        }
-
-        &.bottom {
-          text-transform: lowercase;
-          margin-bottom: 5px;
-        }
-      }
 
       main {
         padding: 30px;
@@ -203,11 +122,7 @@ section.container {
         width: 70%;
 
         nav.drop-down-menu {
-          display: none;
-        }
-
-        nav.minor {
-          justify-content: flex-end;
+          //display: none;
         }
 
         main {

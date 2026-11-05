@@ -7,11 +7,11 @@ const currentRoute = router.currentRoute.value.name
 
 <template>
   <nav class="left-nav">
-    <router-link v-for="(route, index) in router.options.routes"
+    <router-link v-for="(route, index) in router.options.routes.filter(route => route.meta.showInNav)"
                  :key="index"
-                 :to="{ name: route.name}"
+                 :to="{ name: route.name }"
+                 v-text="route.meta.title"
                  :class="{ 'active' : currentRoute === route.name }">
-      <span v-if="route.meta.showInNav" v-text="route.meta.title"/>
     </router-link>
   </nav>
 </template>

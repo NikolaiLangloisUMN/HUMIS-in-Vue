@@ -1,0 +1,48 @@
+nav.minor {
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    align-items: center;
+
+    a {
+        color: var(--black);
+        border-right: 1px solid black;
+        padding-right: 5px;
+        margin-right: 5px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        &.active {
+            text-decoration: underline;
+        }
+    }
+
+    &.top {
+        text-transform: uppercase;
+        margin-top: 5px;
+        order: -2;
+    }
+
+    &.bottom {
+        text-transform: lowercase;
+        margin-bottom: 5px;
+    }
+}
+
+/* Tablet and up overrides */
+@media screen and (width >= 600px) {
+    nav.minor {
+        justify-content: flex-end;
+    }
+}
