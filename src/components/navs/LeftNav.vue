@@ -36,7 +36,6 @@ nav.left-nav {
 
     &.active {
       font-weight: bold;
-      font-size: 12px;
     }
   }
 }

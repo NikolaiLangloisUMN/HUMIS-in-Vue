@@ -122,7 +122,7 @@ section.container {
         width: 70%;
 
         nav.drop-down-menu {
-          //display: none;
+           display: none;
         }
 
         main {
