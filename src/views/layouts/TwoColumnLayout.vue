@@ -37,8 +37,6 @@ section.two-column-layout {
   min-height: 500px;
 
   section {
-    border: 1px solid black;
-    display: flex;
 
     &.left-side {
       width: 35%;
@@ -48,7 +46,12 @@ section.two-column-layout {
     }
 
     &.right-side {
-      width: 65%;
+      border-left: 1px dotted black;
+      padding-left: 1rem;
+
+      p {
+        font-size: 0.7rem;
+      }
     }
   }
 }

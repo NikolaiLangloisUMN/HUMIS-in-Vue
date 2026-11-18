@@ -1,0 +1,30 @@
+<script setup>
+import {useRoute} from "vue-router";
+import newFaculty from "@/views/faculty-and-staff/new-faculty.js";
+import {ref, watch} from "vue";
+
+const route = useRoute()
+const data = ref(null)
+
+const loadFaculty = async (id) => {
+  data.value = newFaculty.find(faculty => faculty.id === Number(id)) ?? null
+}
+
+console.log(data.value)
+
+watch(
+    () => route.params.facultyId,
+    (id) => loadFaculty(id),
+    {immediate: true}
+)
+</script>
+
+<template>
+  <h5 v-text="`New faculty: ${data.firstName} ${data.lastName}`"/>
+
+  <p v-html="data.description"/>
+</template>
+
+<style scoped>
+
+</style>

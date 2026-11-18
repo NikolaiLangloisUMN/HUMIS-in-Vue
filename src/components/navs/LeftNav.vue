@@ -10,9 +10,7 @@ const currentRoute = router.currentRoute.value.name
     <router-link v-for="(route, index) in router.options.routes.filter(route => route.meta.showInNav)"
                  :key="index"
                  :to="{ name: route.name }"
-                 v-text="route.meta.title"
-                 :class="{ 'active' : currentRoute === route.name }">
-    </router-link>
+                 v-text="route.meta.title"/>
   </nav>
 </template>
 
@@ -34,7 +32,7 @@ nav.left-nav {
       color: #fff;
     }
 
-    &.active {
+    &.router-link-active {
       font-weight: bold;
     }
   }

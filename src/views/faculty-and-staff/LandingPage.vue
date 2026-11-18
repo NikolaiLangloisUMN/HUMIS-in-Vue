@@ -21,6 +21,7 @@ import FacultyHeads from "@/components/faculty-and-staff/FacultyHeads.vue";
       </template>
 
       <template #right-side>
+        <router-view/>
       </template>
     </two-column-layout>
 

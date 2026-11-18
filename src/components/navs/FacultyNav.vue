@@ -7,7 +7,10 @@ import newFacultyData from "@/views/faculty-and-staff/new-faculty.js";
     <a href="#">New faculty</a>
 
     <div class="sub">
-      <a v-for="faculty in newFacultyData" href="#" v-text="faculty.firstName + ' ' + faculty.lastName"/>
+      <router-link v-for="faculty in newFacultyData"
+                   :to="{ name: 'faculty-details', params: { facultyId: faculty.id }}"
+                   :key="faculty.id"
+                   v-text="faculty.firstName + ' ' + faculty.lastName"/>
     </div>
 
     <a href="#">Faculty listing</a>
@@ -32,6 +35,14 @@ section.faculty-nav {
 
     a {
       color: red;
+
+      &.router-link-active {
+        font-weight: bold;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

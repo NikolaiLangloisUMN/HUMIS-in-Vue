@@ -2,7 +2,9 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Homepage from '../views/Homepage.vue'
 import AboutUs from "@/views/AboutUs.vue";
 import ContactUs from "@/views/ContactUs.vue";
-import LandingPage from "@/views/faculty-and-staff/LandingPage.vue";
+import FacultyAndStaffLandingPage from "@/views/faculty-and-staff/LandingPage.vue";
+import FacultyDetails from "@/views/faculty-and-staff/FacultyDetails.vue";
+import DefaultContent from "@/views/faculty-and-staff/DefaultContent.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,9 +37,22 @@ const router = createRouter({
             }
         },
         {
-            path: '/faculty-and-staff',
             name: 'faculty-and-staff',
-            component: LandingPage,
+            path: '/faculty-and-staff',
+            component: FacultyAndStaffLandingPage,
+            redirect: {name: 'default-right-content'},
+            children: [
+                {
+                    path: '',
+                    name: 'default-right-content',
+                    component: DefaultContent
+                },
+                {
+                    path: 'details/:facultyId',
+                    name: 'faculty-details',
+                    component: FacultyDetails,
+                }
+            ],
             meta: {
                 title: 'Faculty and Staff',
                 showInNav: true
