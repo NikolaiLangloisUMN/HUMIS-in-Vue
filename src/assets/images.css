@@ -3,7 +3,8 @@ main {
         display: inline-block;
 
         img {
-            max-width: 200px;
+            max-width: 150px;
+            border-radius: 10px;
         }
 
         &.right {

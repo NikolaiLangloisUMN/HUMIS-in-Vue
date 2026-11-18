@@ -4,7 +4,9 @@ import AboutUs from "@/views/AboutUs.vue";
 import ContactUs from "@/views/ContactUs.vue";
 import FacultyAndStaffLandingPage from "@/views/faculty-and-staff/LandingPage.vue";
 import FacultyDetails from "@/views/faculty-and-staff/FacultyDetails.vue";
-import DefaultContent from "@/views/faculty-and-staff/DefaultContent.vue";
+import NewFaculty from "@/views/faculty-and-staff/NewFaculty.vue";
+import FacultyListing from "@/views/faculty-and-staff/FacultyListing.vue";
+import StaffListing from "@/views/faculty-and-staff/StaffListing.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,17 +42,27 @@ const router = createRouter({
             name: 'faculty-and-staff',
             path: '/faculty-and-staff',
             component: FacultyAndStaffLandingPage,
-            redirect: {name: 'default-right-content'},
+            redirect: {name: 'new-faculty'},
             children: [
                 {
                     path: '',
-                    name: 'default-right-content',
-                    component: DefaultContent
+                    name: 'new-faculty',
+                    component: NewFaculty
                 },
                 {
                     path: 'details/:facultyId',
                     name: 'faculty-details',
                     component: FacultyDetails,
+                },
+                {
+                    path: 'faculty-listing',
+                    name: 'faculty-listing',
+                    component: FacultyListing,
+                },
+                {
+                    path: 'staff-listing',
+                    name: 'staff-listing',
+                    component: StaffListing,
                 }
             ],
             meta: {

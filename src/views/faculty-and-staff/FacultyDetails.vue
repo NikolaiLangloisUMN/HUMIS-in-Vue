@@ -22,6 +22,10 @@ watch(
 <template>
   <h5 v-text="`New faculty: ${data.firstName} ${data.lastName}`"/>
 
+  <aside class="pull right">
+    <img :src="data.photo"/>
+  </aside>
+
   <p v-html="data.description"/>
 </template>
 

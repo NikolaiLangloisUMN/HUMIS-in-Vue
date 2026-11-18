@@ -4,7 +4,7 @@ import newFacultyData from "@/views/faculty-and-staff/new-faculty.js";
 
 <template>
   <section class="faculty-nav">
-    <a href="#">New faculty</a>
+    <router-link :to="{ name: 'new-faculty'}">New faculty</router-link>
 
     <div class="sub">
       <router-link v-for="faculty in newFacultyData"
@@ -13,8 +13,8 @@ import newFacultyData from "@/views/faculty-and-staff/new-faculty.js";
                    v-text="faculty.firstName + ' ' + faculty.lastName"/>
     </div>
 
-    <a href="#">Faculty listing</a>
-    <a href="#">Staff listing</a>
+    <router-link :to="{ name: 'faculty-listing'}">Faculty listing</router-link>
+    <router-link :to="{ name: 'staff-listing'}">Staff listing</router-link>
   </section>
 </template>
 
@@ -28,17 +28,18 @@ section.faculty-nav {
     text-decoration: none;
     text-transform: capitalize;
     margin: 3px 0;
+
+    &.router-link-exact-active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
   }
 
   div.sub {
     margin-left: 1rem;
 
     a {
-      color: red;
-
-      &.router-link-active {
-        font-weight: bold;
-      }
+      color: var(--burgundy);
 
       &:hover {
         text-decoration: underline;
