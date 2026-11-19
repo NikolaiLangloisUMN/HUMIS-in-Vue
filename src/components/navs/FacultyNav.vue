@@ -1,12 +1,20 @@
 <script setup>
+import {computed} from "vue";
+import {useRoute} from "vue-router";
 import newFacultyData from "@/views/faculty-and-staff/new-faculty.js";
+
+const route = useRoute();
+
+const isOnNewFacultyRoute = computed(() => {
+  return route.name === 'new-faculty' || route.name === 'faculty-details';
+})
 </script>
 
 <template>
   <section class="faculty-nav">
     <router-link :to="{ name: 'new-faculty'}">New faculty</router-link>
 
-    <div class="sub">
+    <div v-if="isOnNewFacultyRoute" class="sub">
       <router-link v-for="faculty in newFacultyData"
                    :to="{ name: 'faculty-details', params: { facultyId: faculty.id }}"
                    :key="faculty.id"
