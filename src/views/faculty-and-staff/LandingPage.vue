@@ -3,7 +3,7 @@
 import InnerLayout from "@/views/layouts/InnerLayout.vue";
 import TwoColumnLayout from "@/views/layouts/TwoColumnLayout.vue";
 import FacultyNav from "@/components/navs/FacultyNav.vue";
-import FacultyHeads from "@/components/faculty-and-staff/FacultyHeads.vue";
+import FacultyHeads from "@/views/faculty-and-staff/FacultyHeads.vue";
 </script>
 
 <template>

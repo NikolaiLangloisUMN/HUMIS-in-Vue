@@ -1,7 +1,7 @@
 <script setup>
 import {computed} from "vue";
 import {useRoute} from "vue-router";
-import newFacultyData from "@/views/faculty-and-staff/new-faculty.js";
+import newFacultyData from "@/views/faculty-and-staff/data-new-faculty.js";
 
 const route = useRoute();
 
@@ -39,6 +39,9 @@ section.faculty-nav {
 
     &.router-link-exact-active {
       font-weight: bold;
+    }
+
+    &:hover {
       text-decoration: underline;
     }
   }

@@ -1,7 +1,7 @@
 <script setup>
 import {ref, watch} from "vue";
 import {useRoute} from "vue-router";
-import newFaculty from "@/views/faculty-and-staff/new-faculty.js";
+import newFaculty from "@/views/faculty-and-staff/data-new-faculty.js";
 
 const route = useRoute()
 const data = ref(null)
