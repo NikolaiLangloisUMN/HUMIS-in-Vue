@@ -1,7 +1,7 @@
 <script setup>
 import {computed} from "vue";
 import {useRoute} from "vue-router";
-import newFacultyData from "@/views/faculty-and-staff/data-new-faculty.js";
+import newFacultyData from "@/data/data-new-faculty.js";
 
 const route = useRoute();
 

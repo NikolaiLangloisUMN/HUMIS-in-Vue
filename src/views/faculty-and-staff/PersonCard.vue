@@ -10,8 +10,7 @@ const props = defineProps({
 <template>
   <p class="person-card">
     <span class="name" v-text="`${data.first_name} ${data.last_name}`"/>
-    <span class="title" v-text="data.job_title"/>
-    <span class="office">Office: {{ data.office }}</span>
+    <span class="title" v-text="data.title"/>
     <span class="phone">Phone: {{ data.phone_number }}</span>
     <span class="email">
       Email: <a :href="`mailto:${data.email}`">{{ data.email }}</a>

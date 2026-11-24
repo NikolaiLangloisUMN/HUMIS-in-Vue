@@ -1,12 +1,12 @@
 <script setup>
-import dataAllStaff from "@/views/faculty-and-staff/data-all-staff.js";
-import PersonCard from "@/views/faculty-and-staff/PersonCard.vue";
+import PersonTypeList from "@/views/faculty-and-staff/PersonTypeList.vue";
 </script>
 
 <template>
   <h5>Staff Listing</h5>
 
-  <person-card v-for="person in dataAllStaff" :data="person"/>
+  <person-type-list type="staff"/>
+
 </template>
 
 <style scoped>
